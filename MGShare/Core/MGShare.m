@@ -44,13 +44,8 @@
     return [MGShareWechatHandler handleOpenURL:url delegate:self];
 }
 
-#pragma mark - WXApiDelegate
-
-- (void)onReq:(BaseReq*)req {
-    NSLog(@"WXApiDelegate->onReq");
-}
-
 #pragma mark - WX And QQ Delegate
+- (void)onReq:(id)req {}
 - (void)onResp:(id)resp {
     if ([resp isKindOfClass:[BaseResp class]]) {
         BaseResp *realResp = (BaseResp *)resp;
@@ -69,6 +64,8 @@
         }
     }
 }
+
+- (void)isOnlineResponse:(NSDictionary *)response {}
 
 #pragma mark - QQ
 
